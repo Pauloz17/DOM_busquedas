@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "json-server": "^1.0.0-beta.5"
+  },
+  "name": "dom_busquedas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pauloz17/DOM_busquedas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Pauloz17/DOM_busquedas/issues"
+  },
+  "homepage": "https://github.com/Pauloz17/DOM_busquedas#readme"
+}

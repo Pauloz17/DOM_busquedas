@@ -1,0 +1,48 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "documento": "1234567890",
+      "nombre": "Carlos",
+      "apellido": "Rodríguez",
+      "email": "carlos.rodriguez@ejemplo.com"
+    },
+    {
+      "id": 2,
+      "documento": "0987654321",
+      "nombre": "María",
+      "apellido": "González",
+      "email": "maria.gonzalez@ejemplo.com"
+    },
+    {
+      "id": 3,
+      "documento": "1122334455",
+      "nombre": "Juan",
+      "apellido": "Martínez",
+      "email": "juan.martinez@ejemplo.com"
+    }
+  ],
+  "tareas": [
+    {
+      "id": 1,
+      "documento": "1234567890",
+      "titulo": "Revisar el informe de ventas del mes",
+      "descripcion": "Toca revisar bien los números de ventas de enero y preparar el reporte para la junta de gerencia.",
+      "estado": "Pendiente"
+    },
+    {
+      "id": 2,
+      "documento": "1234567890",
+      "titulo": "Llamar al proveedor",
+      "descripcion": "Contactar a Juan del proveedor XYZ para coordinar el próximo pedido.",
+      "estado": "En Proceso"
+    },
+    {
+      "id": 3,
+      "documento": "0987654321",
+      "titulo": "Preparar presentación",
+      "descripcion": "Crear slides para la reunión del viernes con el equipo de marketing.",
+      "estado": "Completada"
+    }
+  ]
+}

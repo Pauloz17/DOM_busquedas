@@ -16,15 +16,25 @@
       <p class="header__subtitle">Practica la manipulación del DOM en tiempo real</p>
     </header>
 
-
-    <section>
-      <form id="usuario">
-        <div>
-          <label for="documento">Documento</label>
-          <input type="text" id="documento">
-        </div>
-        <button>Buscar</button>
+    <!-- Sección de búsqueda de usuario -->
+    <section style="margin: 30px 0; padding: 20px; background-color: #f5f5f5; border-radius: 5px;">
+      <h2>Buscar Usuario</h2>
+      <form id="usuario" style="display: flex; gap: 10px; margin-bottom: 20px;">
+        <input type="text" id="documento" placeholder="Ingresa tu documento" style="flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+        <button type="submit" style="padding: 8px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Buscar</button>
       </form>
+      
+      <!-- Contenedor para mensaje de búsqueda -->
+      <div id="searchMessage" style="display: none; margin-top: 15px; padding: 12px; border-radius: 4px; font-weight: bold;"></div>
+      
+      <!-- Contenedor para datos del usuario encontrado -->
+      <div id="userDataDisplay" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #4CAF50; border-radius: 5px; background-color: #e8f5e9;">
+        <h3>Datos del Usuario Encontrado</h3>
+        <p><strong>Nombre:</strong> <span id="displayNombre"></span></p>
+        <p><strong>Apellido:</strong> <span id="displayApellido"></span></p>
+        <p><strong>Documento:</strong> <span id="displayDocumento"></span></p>
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+      </div>
     </section>
     <!-- Formulario de entrada -->
     <section class="form-section">

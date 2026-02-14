@@ -45,9 +45,13 @@ const emptyState = document.getElementById('emptyState');
 // Contador de mensajes
 const messageCount = document.getElementById('messageCount');
 
-// Sección de datos del usuario
-const userDataSection = document.getElementById('userDataSection');
+// Elemento para mostrar mensajes de búsqueda
+const searchMessage = document.getElementById('searchMessage');
+
+// Búsqueda de usuarios
 const userDataDisplay = document.getElementById('userDataDisplay');
+const documentoInput = document.getElementById('documento');
+const usuarioForm = document.getElementById('usuario');
 
 // Variable para llevar el conteo de mensajes
 let totalMessages = 0;
@@ -163,6 +167,41 @@ function showEmptyState() {
     emptyState.classList.remove('hidden');
 }
 
+// Busca usuario por documento en db.json
+async function buscarUsuario(documento) {
+    try {
+        const response = await fetch('db.json'); // Consulta db.json
+        if (!response.ok) throw new Error('Error al cargar db.json');
+        
+        const data = await response.json(); // Convierte a JSON
+        const usuario = data.usuarios.find(u => u.documento === documento); // Busca usuario
+        
+        if (usuario) {
+            document.getElementById('displayNombre').textContent = usuario.nombre; // Asigna nombre
+            document.getElementById('displayApellido').textContent = usuario.apellido; // Asigna apellido
+            document.getElementById('displayDocumento').textContent = usuario.documento; // Asigna documento
+            document.getElementById('displayEmail').textContent = usuario.email; // Asigna email
+            document.getElementById('userDataDisplay').style.display = 'block'; // Muestra datos
+            
+            // Muestra mensaje de éxito
+            searchMessage.textContent = ` Usuario encontrado: ${usuario.nombre} ${usuario.apellido}`;
+            searchMessage.style.backgroundColor = '#c8e6c9';
+            searchMessage.style.color = '#2e7d32';
+            searchMessage.style.display = 'block';
+        } else {
+            document.getElementById('userDataDisplay').style.display = 'none'; // Oculta datos
+            
+            // Muestra mensaje de no encontrado
+            searchMessage.textContent = ' El usuario no está registrado en el sistema';
+            searchMessage.style.backgroundColor = '#ffcdd2';
+            searchMessage.style.color = '#c62828';
+            searchMessage.style.display = 'block';
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
 
 // ============================================
 // 3. CREACIÓN DE ELEMENTOS
@@ -245,6 +284,17 @@ function handleInputChange(event) {
 messageForm.addEventListener('submit', handleFormSubmit);
 userNameInput.addEventListener('input', handleInputChange);
 userMessageInput.addEventListener('input', handleInputChange);
+
+// Busca usuario al enviar el formulario
+usuarioForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const documento = documentoInput.value.trim();
+    
+    if (documento === '') return;
+    
+    buscarUsuario(documento);
+    documentoInput.value = ''; // Limpia input después de buscar
+});
 
 
 // ============================================
